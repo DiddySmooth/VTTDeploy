@@ -13,7 +13,7 @@ const GameField = () => {
     useInterval(() => {
         // Your custom logic here
         setCount(count2 + 1);
-      }, 1000);
+      }, 50);
 
     const eventControl = async (event, info) => {
         const gameId = localStorage.getItem('gameId')
