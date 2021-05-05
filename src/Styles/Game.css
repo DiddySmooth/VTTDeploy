@@ -1,0 +1,62 @@
+
+.gameScreen{
+    display: flex;
+    height: 94vh;
+    
+}
+.chatArea{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: solid #cebc81 2px;
+  background-color: #0b6e4f;
+  width: 24vw;
+}
+.playArea{
+  display: flex;
+  height:100%;
+}
+.userBar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0b6e4f;
+  height: 100%;
+  width: 70px;
+}
+.playField{
+  width: 72vw;
+}
+.playerPic{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.userBarSpot{
+  width: 50px;
+  height: 50px;
+  
+}
+.playerInfo{
+  background-color:#0b6e4f;
+  width: 24vw;
+  height: 400px;
+  margin-top: 10px;
+}
+.settings{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+}
+.settingsImg{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

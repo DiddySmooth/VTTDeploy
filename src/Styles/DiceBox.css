@@ -1,0 +1,15 @@
+.diceButton{
+    margin-left: 12px;
+    margin-right: 12px;
+    background-color: #fa9f42;
+    border-radius: 50%;
+    border: solid #0b6e4f 3px;
+    color: #721817;
+    width: 45px;
+    height: 45px;
+  }
+  .diceBox{
+    margin-top: 10px;
+    background-color: #721817;
+    padding: 10px;
+  }
