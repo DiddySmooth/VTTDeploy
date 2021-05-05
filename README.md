@@ -54,9 +54,12 @@ Players can move their pieces around on the screen and can roll dice and edit th
 - CONNECT TO GAME
 - CHAT
 - DICE ROLLS
+
 ## Stretch Goals
 - PLAYERS CAN MAKE THEIR OWN CHARACTERS
 - CHARACTERS ARE SAVED TO USERS ACCOUNTS NOT GAMES
 - GAME BOARD WITH MOVABLE PIECES 
+
+
 
 
