@@ -12,7 +12,7 @@ const DiceBox = () => {
         let roll = (Math.floor(Math.random() * num))
         console.log(roll+1)
 
-        let res = await axios.post('http://localhost:3001/chat/create', {
+        let res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/chat/create`, {
             headers:{ 
                 authorization: userId,
                 gameauth: gameId
