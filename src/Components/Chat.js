@@ -1,10 +1,11 @@
 import '../Styles/Chat.css'
 import {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
-import {GameContext} from "../Context/GameContext"
-import {UserContext} from "../Context/UserContext"
+import { GameContext } from "../Context/GameContext"
+import { UserContext } from "../Context/UserContext"
+import { SocketContext } from '../Context/SocketContext'
+import socketIOClient from "socket.io-client"
 import {Redirect} from 'react-router-dom'
-import useInterval from '../Hooks/useInterval'
 let messagesEnd;
 
 
@@ -16,15 +17,16 @@ const Chat = () =>{
     const[user,setUser] = userState
     const {gameState} = useContext(GameContext)
     const[game, setGame] = gameState
+    const socket = useContext(SocketContext);
     /////Seting up States /////
     const[allChats,setAllChats] = useState([])
     const[body, setBody] = useState("")
-    const[count, setCount] = useState(0)
 
-    useInterval(() => {
-        // Your custom logic here
-        setCount(count + 1);
-      }, 1000);
+    useEffect(() => {
+        getAllChats()
+        socket.emit("USER_ONLINE", user.userId); 
+
+      }, []);
 
     const CreateChat = async (e) => {
         e.preventDefault()
@@ -44,7 +46,10 @@ const Chat = () =>{
             
         })
         setBody("")
+
+        
     }
+    
     
     const getAllChats = async() => {
         try {
@@ -66,9 +71,7 @@ const Chat = () =>{
         }
         
     }
-    useEffect(() => {
-        getAllChats()
-    }, [count])
+
 
     const scrollToBottom = () => {
         messagesEnd.scrollIntoView({ behavior: "smooth" });

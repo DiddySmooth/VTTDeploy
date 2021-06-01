@@ -10,10 +10,6 @@ const GameField = () => {
     const [count2, setCount] = useState(0)
     const [allTokens, setAllTokens] = useState([])
 
-    useInterval(() => {
-        // Your custom logic here
-        setCount(count2 + 1);
-      }, 50);
 
     const eventControl = async (event, info) => {
         const gameId = localStorage.getItem('gameId')

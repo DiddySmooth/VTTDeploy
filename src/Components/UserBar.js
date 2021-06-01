@@ -9,10 +9,7 @@ const UserBar = () => {
     const[allUsersPictures, setAllUsersPictures] = useState(null)
     const[count, setCount] = useState(0)
 
-    useInterval(() => {
-        // Your custom logic here
-        setCount(count + 1);
-      }, 1000);
+
 
     const getAllUsers = async() => {
         try {

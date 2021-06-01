@@ -6,14 +6,18 @@ import {BrowserRouter} from 'react-router-dom'
 import {UserProvider} from './Context/UserContext'
 import {GameProvider} from './Context/GameContext'
 
+import {SocketContext, socket} from './Context/SocketContext';
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <GameProvider>
-    <UserProvider>
-    <App />
-    </UserProvider>
-    </GameProvider>
+        <SocketContext.Provider value={socket}>
+            <GameProvider>
+                <UserProvider>
+                    <App />
+                 </UserProvider>
+            </GameProvider>
+        </SocketContext.Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
