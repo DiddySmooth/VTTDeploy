@@ -1,13 +1,14 @@
 import axios from 'axios'
 import {useEffect, useState, useContext} from 'react'
-import useInterval from '../Hooks/useInterval'
+import { SocketContext } from '../Context/SocketContext'
+
 
 const jwt = require('jsonwebtoken')
 
 const UserBar = () => {
     const[allUsers, setAllUsers] = useState([""])
     const[allUsersPictures, setAllUsersPictures] = useState(null)
-    const[count, setCount] = useState(0)
+    const socket = useContext(SocketContext);
 
 
 
@@ -18,7 +19,6 @@ const UserBar = () => {
             headers:{ 
                 gameauth: gameId
             }})
-            console.log(res.data.foundRecord)
             setAllUsers(res.data.foundRecord)
         } catch (error) {
             console.log(error)
@@ -26,9 +26,11 @@ const UserBar = () => {
     }
     useEffect(() => {
         getAllUsers()
+        socket.on("refreshUserBar", function() {
+            getAllUsers()
+        })
     }, [])
 
-console.log(allUsers)
 
     const getAllPictures = async() => {
         let newUserArray = []
@@ -41,7 +43,6 @@ console.log(allUsers)
             }
         
         })
-        console.log(res.data)
         newUserArray.push(res.data.user)
         setAllUsersPictures(newUserArray)
         })
@@ -53,7 +54,7 @@ console.log(allUsers)
         getAllPictures()
     }, [allUsers])
 
-    console.log(allUsersPictures)
+
 
     return(
         <div>
@@ -61,7 +62,6 @@ console.log(allUsers)
                 {allUsersPictures && allUsersPictures.map((user, i) => 
                     user && 
                     <div key={i}className="userBarSpot">
-                        {console.log(user)}
                         <img key={i}className="playerPic" src={user.picture && user.picture}/>
                     </div>
                 )}

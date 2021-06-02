@@ -4,7 +4,7 @@ import axios from 'axios'
 import { GameContext } from "../Context/GameContext"
 import { UserContext } from "../Context/UserContext"
 import { SocketContext } from '../Context/SocketContext'
-import socketIOClient from "socket.io-client"
+
 import {Redirect} from 'react-router-dom'
 let messagesEnd;
 
@@ -22,18 +22,21 @@ const Chat = () =>{
     const[allChats,setAllChats] = useState([])
     const[body, setBody] = useState("")
 
+
     useEffect(() => {
         getAllChats()
-        socket.emit("USER_ONLINE", user.userId); 
-
+        socket.on("refreshChat", function() {
+            refresh()
+        })
       }, []);
 
+    socket.emit("room", game.id)
     const CreateChat = async (e) => {
         e.preventDefault()
         const userId = localStorage.getItem('userId')
         const gameId = localStorage.getItem('gameId')
-        console.log(typeof(body))
-        console.log(userId)
+
+        
         let res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/chat/create`, {
             headers:{ 
                 authorization: userId,
@@ -45,9 +48,17 @@ const Chat = () =>{
             }
             
         })
+        console.log(body)
+        //socket.emit("Message", body); 
         setBody("")
-
-        
+        sendMessage()
+         
+    }
+    const refresh = () => {
+        getAllChats()
+    }
+    const sendMessage = () => {
+        socket.emit("Message")
     }
     
     
@@ -71,8 +82,6 @@ const Chat = () =>{
         }
         
     }
-
-
     const scrollToBottom = () => {
         messagesEnd.scrollIntoView({ behavior: "smooth" });
     }

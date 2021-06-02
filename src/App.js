@@ -19,6 +19,7 @@ function App() {
   const[game, setGame] = gameState
 
   
+
   const getUserInfo = async () => {
     const userId = localStorage.getItem('userId')
     try {

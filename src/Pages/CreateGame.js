@@ -2,7 +2,7 @@ import '../Styles/CreateJoinGame.css'
 import {useState, useContext} from 'react'
 import {GameContext} from '../Context/GameContext'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
+
 
 const CreateGame = () => {
     const {gameState} = useContext(GameContext)
@@ -11,6 +11,7 @@ const CreateGame = () => {
     // form input states 
     const [title,setTitle] = useState('')
     const [password,setPassword] = useState('')
+
     
     const CreateGameSubmit = async (e) => {
         e.preventDefault()
