@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Draggable from 'react-draggable';
-import useInterval from '../Hooks/useInterval'
+
+import { SocketContext } from '../Context/SocketContext'
 
 const GameField = () => {
     const [deltaXyPos, setDeltaXyPost] = useState({y:0, x:0})
@@ -9,19 +10,29 @@ const GameField = () => {
     const [picture, setPicture] = useState("")
     const [count2, setCount] = useState(0)
     const [allTokens, setAllTokens] = useState([])
+    const gameId = localStorage.getItem('gameId')
+    const socket = useContext(SocketContext);
 
-
+    socket.emit("room", gameId)
     const eventControl = async (event, info) => {
-        const gameId = localStorage.getItem('gameId')
+        
         const name = info.node.getAttribute("data-token")
-        console.log(info.node.getAttribute("data-token"), info.x, info.y)
         let res = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/token/move`, {
             name: name,
             gameId: gameId,
             x: info.x,
             y: info.y
         })
+        socket.emit("refreshBoard")
     }
+
+    useEffect(() => {
+        getAllTokens()
+        socket.on("refreshBoard", function() {
+            console.log("refresh board")
+            getAllTokens()
+        })
+      }, []);
 
     const tokenSubmit = async (e) => {
         e.preventDefault()
@@ -32,7 +43,7 @@ const GameField = () => {
             picture: picture,
             gameId: gameId
         })
-        console.log(res.data)
+        socket.emit("refreshBoard")
     }
     const getAllTokens = async () => {
         try {
@@ -50,9 +61,6 @@ const GameField = () => {
         }
     }
 
-    useEffect(() => {
-        getAllTokens()
-    }, [count2])
 
 
     return (

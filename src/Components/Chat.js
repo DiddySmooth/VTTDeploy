@@ -49,17 +49,17 @@ const Chat = () =>{
             
         })
         console.log(body)
-        //socket.emit("Message", body); 
+        socket.emit("Message", body); 
         setBody("")
-        sendMessage()
+        // sendMessage()
          
     }
     const refresh = () => {
         getAllChats()
     }
-    const sendMessage = () => {
-        socket.emit("Message")
-    }
+    // const sendMessage = () => {
+    //     socket.emit("Message")
+    // }
     
     
     const getAllChats = async() => {
