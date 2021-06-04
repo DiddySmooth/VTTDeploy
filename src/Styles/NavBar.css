@@ -1,5 +1,5 @@
 .navBarContainer{
-    background-color: #0b6e4f;
+    background-color: #282829;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +7,7 @@
     height:2vh;
   }
   .navLink {
-    color: #19181A;
+    color: white;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
