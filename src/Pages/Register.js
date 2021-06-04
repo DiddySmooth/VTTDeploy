@@ -38,7 +38,7 @@ const Register = () => {
                     <input className="loginFormInput" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <input className="loginFormInput" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <input className="loginFormInput" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <input className="loginFormButton" type="submit" value="submit" />
+                    <input className="loginFormButton" type="submit" value="Register" />
                     <div className="loginFormDiv">
                         <span className="loginFormLink">Already have an account? Sign In</span>
                     </div>

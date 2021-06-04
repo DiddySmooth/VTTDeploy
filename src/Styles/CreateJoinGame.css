@@ -3,29 +3,37 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #CEBC81;
-    width: 230px;
-    height: 200px;
-    margin-right: 20px;
-    border-radius: 5px;
+    background-color: #19181A;
+    width: 50vw;
+    height: 100vh;
 }
 .createLoginContainer{
     display: flex;
     flex-direction: column;
+    margin-bottom: 300px;
 }
 .loginGameContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #CEBC81;
-    width: 230px;
-    height: 200px;
-    border-radius: 5px;
+    background-color: #151416;
+    width: 50vw;
+    height: 100vh;
 }
 .createGamePage{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    
+}
+.gamePageInput{
+    width: 34vw;
+    height: 55px;
+    margin: 15px;
+    border-radius: 8px;
+    border: solid grey 2px
+}
+.createGameTitle{
+    font-size: 30px;
 }

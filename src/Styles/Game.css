@@ -8,8 +8,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  border: solid #cebc81 2px;
-  background-color: #0b6e4f;
+  border: solid #000000 2px;
+  background-color: #282829;
   width: 24vw;
 }
 .playArea{
@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0b6e4f;
+  background-color: #282829;
   height: 100%;
   width: 70px;
 }
@@ -41,7 +41,7 @@
   
 }
 .playerInfo{
-  background-color:#0b6e4f;
+  background-color:#282829;
   width: 24vw;
   height: 400px;
   margin-top: 10px;

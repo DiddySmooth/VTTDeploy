@@ -66,19 +66,29 @@ const CreateGame = () => {
     return (
         <div className="createGamePage">
             <div className="createGameContainer">
-                <h2>CreateGame</h2>
+                <h2 className="createGameTitle">CreateGame</h2>
                 <form className="createLoginContainer" onSubmit={CreateGameSubmit}>
-                    <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <input type="submit" value="submit" />
+                    <input className="gamePageInput" type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input className="gamePageInput" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input className="gamePageInput" list="ruleset" placeholder="Ruleset"></input>
+                    <datalist id="ruleset">
+                        <option className="gamePageInput" value ="Dungeons and Dragons 5e"/>
+                        <option className="gamePageInput" value ="Dungeons and Dragons 4e"/>
+                        <option className="gamePageInput" value ="Dungeons and Dragons 3e"/>
+                        <option className="gamePageInput" value ="Dungeons and Dragons 2e"/>
+                        <option className="gamePageInput" value ="Dungeons and Dragons 1e"/>
+                    </datalist>
+                    <input className="gamePageInput" type="submit" value="submit" />
+                    
+                    
                 </form>
             </div>
             <div className="loginGameContainer">
-                <h2>Join Existing Game</h2>
+                <h2 className="createGameTitle">Join Existing Game</h2>
                 <form className="createLoginContainer" onSubmit={loginGameSubmit}>
-                    <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <input type="submit" value="submit" />
+                    <input className="gamePageInput" type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input className="gamePageInput" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input className="gamePageInput" type="submit" value="submit" />
                 </form>
             </div>
         </div>

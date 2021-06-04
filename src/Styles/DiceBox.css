@@ -10,6 +10,7 @@
   }
   .diceBox{
     margin-top: 10px;
-    background-color: #721817;
+    background-color: #282829;
+    border: solid black 2px;
     padding: 10px;
   }

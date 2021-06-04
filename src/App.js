@@ -13,29 +13,28 @@ import CreateGame from './Pages/CreateGame'
 import Game from './Pages/Game';
 
 function App() {
-  const {userState} = useContext(UserContext)
-  const {gameState} = useContext(GameContext)
-  const[user,setUser] = userState
-  const[game, setGame] = gameState
+    const {userState} = useContext(UserContext)
+    const {gameState} = useContext(GameContext)
+    const[user,setUser] = userState
+    const[game, setGame] = gameState
 
   
 
-  const getUserInfo = async () => {
+    const getUserInfo = async () => {
     const userId = localStorage.getItem('userId')
-    try {
-      let user = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/getInfo` ,{
-      headers:{
-        authorization: userId
-      }
-    })
-    if(user.data.user) {
-      setUser(user.data)  
+        try {
+            let user = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/getInfo` ,{
+            headers:{
+                authorization: userId
+            }
+        })
+        if(user.data.user) {
+            setUser(user.data)  
+        }
+        } catch (error) {
+            console.log(error)
+        }
     }
-    } catch (error) {
-      console.log(error)
-    }
-    
-  }
   useEffect(() => {
     getUserInfo()
   },[])
@@ -60,52 +59,18 @@ function App() {
     getGameInfo()
   },[])
 
-  return (
-    <div className="App">
-      <NavBar />
+    return (
+        <div className="App">
+        <NavBar />
+        <Route exact path="/home"><Home /></Route>
+        <Route exact path="/"><Home /></Route>
 
-      <Route exact path="/">
-        {user ? 
-          <Redirect to="/create" />
-        :
-          <Login />
-        }
-      </Route>
-
-      <Route exact path="/create">
-      {game ? 
-        <Redirect to="/game"/>
-        :
-        <CreateGame />
-        }
-        
-      </Route>
-
-      <Route exact path="/login">
-        {user ? 
-          <Redirect to="/create" />
-        :
-          <Login />
-        }
-      </Route>
-
-      <Route exact path="/register">
-        {user ? 
-          <Redirect to="/create" />
-        :
-          <Register />
-        }
-      </Route>
-
-      <Route exact path="/game">
-        {user ? 
-          <Game />
-        :
-          <Redirect to="/" />
-        }
-      </Route>
-    </div>
-  );
+        <Route exact path="/create">{game ?<Redirect to="/game"/>:<CreateGame />}</Route>
+        <Route exact path="/login">{user ? <Redirect to="/create" />:<Login />}</Route>
+        <Route exact path="/register">{user ? <Redirect to="/create" />:<Register />}</Route>
+        <Route exact path="/game">{user ? <Game />:<Redirect to="/" />}</Route>
+        </div>
+    );
 }
 
 export default App;

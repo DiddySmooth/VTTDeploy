@@ -22,3 +22,28 @@
   align-items: center;
   height: 100%;
 }
+.chatFrom{
+    display: flex;
+    justify-content: flex-start
+}
+.chatButton{
+    width:3vw;
+    font-size: 13px;
+    background-color: #282829;
+    border: none;
+    color: white;
+}
+.chatInput{
+    font-size: 13px;
+    background-color: #282829;
+    border: none;
+    color: white;
+    
+}
+.chatInput:focus{
+    font-size: 13px;
+    background-color: #282829;
+    border: none;
+    color: white;
+    
+  }

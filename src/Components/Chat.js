@@ -91,10 +91,7 @@ const Chat = () =>{
         <div className="Chat">
                 <div className="chatContainer">
                     {game ? "Chat": <Redirect to="/login" />}
-                    <form className="chatForm" onSubmit={CreateChat}>
-                            <input type="text" placeholder="Chat" value={body} onChange={(e) => setBody(e.target.value)} />
-                            <input type="submit" value="submit" />
-                    </form>
+                    
                     <div className="chatLog">
                         {allChats.map((chat, i) =>
                             <p key ={i}>{chat.author}:{chat.body}</p>
@@ -103,7 +100,13 @@ const Chat = () =>{
                             ref={(el) => { messagesEnd = el; }}>
                                 
                         </div>
-                    </div>        
+                    </div>    
+                    <div className="chatForm">
+                        <form onSubmit={CreateChat}>
+                            <input className="chatButton" type="submit" value="SEND" />
+                            <input className="chatInput" type="text" placeholder="Chat" value={body} onChange={(e) => setBody(e.target.value)} />    
+                        </form>    
+                    </div>
                 </div>
                 
             </div>
