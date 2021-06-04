@@ -27,14 +27,21 @@ const Register = () => {
     }
 
     return (
-        <div className="loginContainer">
+        <div className="loginPage">
+            <div className="loginPicContainer">
+                <img className="loginPicture" src="https://i.imgur.com/WVGWGzO.jpg" />
+            </div>
             <div className="loginFormContainer">
+                <img className="loginPageLogo" src="https://i.imgur.com/93RgaYU.jpg"/>
                 <h1>Register</h1>
                 <form className="loginForm" onSubmit={registerSubmit}>
                     <input className="loginFormInput" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <input className="loginFormInput" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <input className="loginFormInput" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <input className="loginFormButton" type="submit" value="submit" />
+                    <div className="loginFormDiv">
+                        <span className="loginFormLink">Already have an account? Sign In</span>
+                    </div>
                 </form>
             </div>
         </div>
