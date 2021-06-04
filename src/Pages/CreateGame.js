@@ -1,18 +1,21 @@
-import '../Styles/CreateJoinGame.css'
-import {useState, useContext} from 'react'
-import {GameContext} from '../Context/GameContext'
 import axios from 'axios'
+import {useState, useContext} from 'react'
+
+import {GameContext} from '../Context/GameContext'
+
+import '../Styles/CreateJoinGame.css'
 
 
 const CreateGame = () => {
+    /////  CONTEXT ///////
     const {gameState} = useContext(GameContext)
-    const [game,setGame] = gameState
     
-    // form input states 
+    ////// STATE //////
+    const [game,setGame] = gameState
     const [title,setTitle] = useState('')
     const [password,setPassword] = useState('')
 
-    
+    ///// CALLS TO BACKEND TO CREATE A GAME AND SIGNS USER INTO THAT GAME /////
     const CreateGameSubmit = async (e) => {
         e.preventDefault()
         const userId = localStorage.getItem('userId')
@@ -34,8 +37,9 @@ const CreateGame = () => {
                 gameauth: res.data.encryptedId
             }
         })
-        console.log(res1)
     }
+
+    ////// logs player into game //////
     const loginGameSubmit = async (e) => {
         e.preventDefault()
         const userId = localStorage.getItem('userId')
@@ -57,7 +61,6 @@ const CreateGame = () => {
                 gameauth: res.data.encryptedId
             }
         })
-        console.log(res1)
     }
 
     return (

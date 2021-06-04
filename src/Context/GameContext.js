@@ -1,5 +1,4 @@
 import {useState, createContext } from 'react'
-import axios from 'axios'
 const GameContext = createContext()
 
 const GameProvider = ({children}) => {

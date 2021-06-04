@@ -1,16 +1,22 @@
-import '../Styles/NavBar.css'
-import {useState, useContext} from 'react'
-import {UserContext} from '../Context/UserContext'
+import {useContext} from 'react'
 import {Link} from 'react-router-dom'
+
+import {UserContext} from '../Context/UserContext'
 import { GameContext } from '../Context/GameContext'
+
+import '../Styles/NavBar.css'
+
 const NavBar = () => {
+    ///// Context /////
     const {userState} = useContext(UserContext)
-    const[user,setUser] = userState
     const {gameState} = useContext(GameContext)
+    
+    /////   STATE   //////
+    const[user,setUser] = userState
     const[game,setGame] = gameState
 
 
-
+    
     const logout = () => {
         localStorage.removeItem("userId")
         localStorage.removeItem("gameId")

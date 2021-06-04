@@ -1,42 +1,47 @@
-import '../Styles/Chat.css'
 import {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
+
 import { GameContext } from "../Context/GameContext"
 import { UserContext } from "../Context/UserContext"
 import { SocketContext } from '../Context/SocketContext'
 
-import {Redirect} from 'react-router-dom'
+import '../Styles/Chat.css'
+
 let messagesEnd;
 
 
 
 
 const Chat = () =>{
-    /////Gettings user and game from stores /////
+    /////   CONTEXT /////
     const {userState} = useContext(UserContext)
-    const[user,setUser] = userState
     const {gameState} = useContext(GameContext)
-    const[game, setGame] = gameState
     const socket = useContext(SocketContext);
-    /////Seting up States /////
+
+    //////  STATE //////
+    const[user,setUser] = userState
+    const[game, setGame] = gameState
     const[allChats,setAllChats] = useState([])
     const[body, setBody] = useState("")
 
-
+    ///// sockets listening for messages /////
     useEffect(() => {
         getAllChats()
         socket.on("refreshChat", function() {
-            refresh()
+            getAllChats()
         })
       }, []);
-
+    
+    ///// user joins room based on game Id on the backend /////  
     socket.emit("room", game.id)
+
+    ///// handles when user hits enter or submit on the chat bar/////
     const CreateChat = async (e) => {
         e.preventDefault()
         const userId = localStorage.getItem('userId')
         const gameId = localStorage.getItem('gameId')
 
-        
         let res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/chat/create`, {
             headers:{ 
                 authorization: userId,
@@ -48,20 +53,13 @@ const Chat = () =>{
             }
             
         })
-        console.log(body)
         socket.emit("Message", body); 
         setBody("")
-        // sendMessage()
          
     }
-    const refresh = () => {
-        getAllChats()
-    }
-    // const sendMessage = () => {
-    //     socket.emit("Message")
-    // }
-    
-    
+
+
+    /////gets all the messages in the chat /////
     const getAllChats = async() => {
         try {
             const userId = localStorage.getItem('userId')
@@ -82,6 +80,8 @@ const Chat = () =>{
         }
         
     }
+
+    //// used to scroll chat to the bottom going to remove this/////
     const scrollToBottom = () => {
         messagesEnd.scrollIntoView({ behavior: "smooth" });
     }

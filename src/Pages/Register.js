@@ -19,7 +19,7 @@ const Register = () => {
             username: name,
             email: email,
             password: password,
-            picture: picture
+            picture: "https://i.imgur.com/UTFIOfp.jpg"
         })
         console.log(res.data.userId)
         localStorage.setItem('userId', res.data.userId)
@@ -34,7 +34,6 @@ const Register = () => {
                     <input className="loginFormInput" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <input className="loginFormInput" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <input className="loginFormInput" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <input className="loginFormInput" type="picture url" placeholder="URL" value={picture} onChange={(e) => setPicture(e.target.value)} />
                     <input className="loginFormButton" type="submit" value="submit" />
                 </form>
             </div>

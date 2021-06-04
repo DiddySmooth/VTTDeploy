@@ -1,9 +1,15 @@
-import '../Styles/DiceBox.css'
 import axios from 'axios'
-import {useEffect, useState, useContext} from 'react'
+import {useContext} from 'react'
 import {UserContext} from "../Context/UserContext"
+
+import '../Styles/DiceBox.css'
+
 const DiceBox = () => {
+
+    /////   CONTEXT /////
     const {userState} = useContext(UserContext)
+
+    ////// STATE /////
     const[user,setUser] = userState
 
     const DiceRoll = async (num) => {
