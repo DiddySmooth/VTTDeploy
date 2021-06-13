@@ -7,7 +7,6 @@
 .chatArea{
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   border: solid #000000 2px;
   background-color: #282829;
   width: 24vw;

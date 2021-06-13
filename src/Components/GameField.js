@@ -19,16 +19,22 @@ const GameField = () => {
     ///// Join socket room based on gmae ID
     socket.emit("room", gameId)
 
+    const roundNum = (num) =>{
+        return Math.round(num /50)* 50;
+    }
+
     ///// gets the position on drop of peice and sends api request to move to backend
     const eventControl = async (event, info) => {
+        console.log(info)
         const name = info.node.getAttribute("data-token")
         let res = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/token/move`, {
             name: name,
             gameId: gameId,
-            x: info.x,
-            y: info.y
+            x: roundNum(info.x),
+            y: roundNum(info.y)
         })
         socket.emit("refreshBoard")
+        console.log( roundNum(info.x), roundNum(info.y))
     }
     ///// Things that go off on start and any socket.on
     useEffect(() => {
@@ -82,7 +88,7 @@ const GameField = () => {
                 </div>
                 {allTokens && allTokens.map((token, i) =>
                     token  &&
-                    <Draggable key={i} onStop={eventControl} grid={[50, 50]} position={{x:token.x, y:token.y}} disabled={false} handle=".playerPic">
+                    <Draggable key={i} onStop={eventControl} grid={[50, 50]} scale={1} position={{x:token.x, y:token.y}} disabled={false} handle=".playerPic">
                         <img data-token={token.name} draggable="false" className="playerPic"src={token.picture}/>
                     </Draggable>
                     

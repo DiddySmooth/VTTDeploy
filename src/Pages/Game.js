@@ -5,6 +5,7 @@ import Chat from '../Components/Chat'
 import DiceBox from "../Components/DiceBox"
 import UserBar from '../Components/UserBar'
 import GameField from '../Components/GameField'
+import PlayerInfo from '../Components/PlayerInfo'
 
 import { SocketContext } from '../Context/SocketContext'
 
@@ -53,7 +54,7 @@ const Game = () => {
             <div className="chatArea">
                 <Chat />
                 <DiceBox />
-                <div className="playerInfo">Player Info</div>
+                <PlayerInfo />
             </div>
             
         </div>
