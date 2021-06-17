@@ -5,7 +5,7 @@ import {GameContext} from "./Context/GameContext"
 import {useEffect, useContext} from 'react'
 import axios from 'axios'
 import socketIOClient from "socket.io-client";
-import NavBar from './Components/NavBar'
+import NavBar from './Components/UI/NavBar'
 import Register from './Pages/Register'
 import Login from './Pages/Login'
 import Home from './Pages/Home'

@@ -1,4 +1,4 @@
-import '../Styles/Stats.css'
+import '../../../Styles/Stats.css'
 const Stats = (props) => {
     return(
         <div className="statBox">

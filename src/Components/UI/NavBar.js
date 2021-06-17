@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {UserContext} from '../../Context/UserContext'
 import { GameContext } from '../../Context/GameContext'
 
-import '../Styles/NavBar.css'
+import '../../Styles/NavBar.css'
 
 const NavBar = () => {
     ///// Context /////

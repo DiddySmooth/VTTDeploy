@@ -1,4 +1,4 @@
-import Stats from "./Stats"
+import Stats from "../PlayerInfo/Stats"
 const PlayerStats = () => {
     return(
         <div>

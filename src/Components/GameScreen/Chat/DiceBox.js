@@ -2,7 +2,7 @@ import axios from 'axios'
 import {useContext} from 'react'
 import {UserContext} from "../../../Context/UserContext"
 
-import '../Styles/DiceBox.css'
+import '../../../Styles/DiceBox.css'
 
 const DiceBox = () => {
 
