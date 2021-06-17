@@ -1,11 +1,11 @@
 import { useEffect, useContext } from 'react'
 import axios from 'axios'
 import '../Styles/Game.css'
-import Chat from '../Components/Chat'
-import DiceBox from "../Components/DiceBox"
-import UserBar from '../Components/UserBar'
-import GameField from '../Components/GameField'
-import PlayerInfo from '../Components/PlayerInfo'
+import Chat from '../Components/GameScreen/Chat/Chat'
+import DiceBox from "../Components/GameScreen/Chat/DiceBox"
+import UserBar from '../Components/GameScreen/GameScreenUI/UserBar'
+import GameField from '../Components/GameScreen/GameField/GameField'
+import PlayerInfo from '../Components/GameScreen/PlayerInfo/PlayerInfo'
 
 import { SocketContext } from '../Context/SocketContext'
 

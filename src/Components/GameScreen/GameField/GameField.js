@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useContext } from 'react'
 import Draggable from 'react-draggable';
 
-import { SocketContext } from '../Context/SocketContext'
+import { SocketContext } from '../../../Context/SocketContext'
 
 const GameField = () => {
 

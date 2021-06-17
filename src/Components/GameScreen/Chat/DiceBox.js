@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {useContext} from 'react'
-import {UserContext} from "../Context/UserContext"
+import {UserContext} from "../../../Context/UserContext"
 
 import '../Styles/DiceBox.css'
 

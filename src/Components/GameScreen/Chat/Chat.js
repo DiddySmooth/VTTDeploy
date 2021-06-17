@@ -2,9 +2,9 @@ import {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 
-import { GameContext } from "../Context/GameContext"
-import { UserContext } from "../Context/UserContext"
-import { SocketContext } from '../Context/SocketContext'
+import { GameContext } from "../../../Context/GameContext"
+import { UserContext } from "../../../Context/UserContext"
+import { SocketContext } from '../../../Context/SocketContext'
 
 import '../Styles/Chat.css'
 

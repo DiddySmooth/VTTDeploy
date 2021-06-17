@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {useEffect, useState, useContext} from 'react'
 
-import { GameContext } from "../Context/GameContext"
-import { SocketContext } from '../Context/SocketContext'
+import { GameContext } from "../../../Context/GameContext"
+import { SocketContext } from '../../../Context/SocketContext'
 
 const jwt = require('jsonwebtoken')
 
