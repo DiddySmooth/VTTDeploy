@@ -8,5 +8,9 @@ body{
 html{
   heighT:100%
 }
+.CharacterInfo{
+    display: inline-block;
+}
+
 
 
