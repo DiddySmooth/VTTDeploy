@@ -1,7 +1,7 @@
 import Stats from "../PlayerInfo/Stats"
 const PlayerStats = () => {
     return(
-        <div>
+        <div className = "StatsUI">
             <Stats num="12" stat="Str"/>
             <Stats num="16" stat="Dex"/>
             <Stats num="15" stat="Con"/>

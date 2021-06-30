@@ -1,22 +1,20 @@
 const CharacterInfo = () => {
     return (
-        <div className= "characterInfoContainer">
-            <div className= "characterInfoContainer">
-                <label>Name:</label>
-                <span> Grayson </span>
-            </div>
-            <div className= "characterInfoContainer">
-                <label>Race:</label>
-                <span> Ogre </span>
-            </div>
-            <div className= "characterInfoContainer">
-                <label>Class:</label>
-                <span> Rogue </span>
-            </div>
-            <div className= "characterInfoContainer">
-                <label>Level:</label>
-                <span> 5 </span>
-            </div>
+        <div className= "CharacterInfoUI">
+            <form>
+                <div>
+                    <label>Name:</label>
+                    <input className="CharacterInfoInput" defaultValue="Grayson"/>
+                    <label>Race:</label>
+                    <input className="CharacterInfoInput" defaultValue="Drow Elf"/>
+                </div>
+                <div>
+                    <label>Class:</label>
+                    <input className="CharacterInfoInput" defaultValue="Ranger"/>
+                    <label>Level:</label>
+                    <input className="CharacterInfoInput" defaultValue="17"/>
+                </div>
+            </form>
         </div>
     )
 }
