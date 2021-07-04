@@ -11,12 +11,16 @@ html{
 .CharacterInfoUI{
     display: flex;
     flex-wrap: wrap;
+    height: 60px;
+    width: 300px;
+
 }
 .CharacterInfoInput{
     background-color:#19181A;
     border: none;
     color: white;
     width: 100px;
+    height: 30px;
 }
 .StatsUI{
     width: 50px;
@@ -24,5 +28,7 @@ html{
 .PlayerInfoUI{
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 

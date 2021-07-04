@@ -1,19 +1,16 @@
 const CharacterInfo = () => {
     return (
         <div className= "CharacterInfoUI">
-            <form>
-                <div>
-                    <label>Name:</label>
-                    <input className="CharacterInfoInput" defaultValue="Grayson"/>
-                    <label>Race:</label>
-                    <input className="CharacterInfoInput" defaultValue="Drow Elf"/>
-                </div>
-                <div>
-                    <label>Class:</label>
-                    <input className="CharacterInfoInput" defaultValue="Ranger"/>
-                    <label>Level:</label>
-                    <input className="CharacterInfoInput" defaultValue="17"/>
-                </div>
+            <form className= "CharacterInfoUI">
+                <label className="CharacterInfoInput" >Name:</label>
+                <input className="CharacterInfoInput" defaultValue="Grayson"/>
+                <label className="CharacterInfoInput" >Race:</label>
+                <input className="CharacterInfoInput" defaultValue="Drow Elf"/>
+                < br />
+                <label className="CharacterInfoInput" >Class:</label>
+                <input className="CharacterInfoInput" defaultValue="Ranger"/>ad1
+                <label className="CharacterInfoInput" >Level:</label>
+                <input className="CharacterInfoInput" defaultValue="17"/>
             </form>
         </div>
     )
